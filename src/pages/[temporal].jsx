@@ -397,12 +397,66 @@ import { WithoutAuth } from '../../HOCs/WithoutAuth'
 
 
 export async function getServerSideProps(context) {
-    return {
-      props: {
-        dataServer: { "title": "true" },
-      },
-    };
+  function validate() {
+
+    switch (context.params.temporal.slice(0, 2)) {
+      case '11':
+        return "Inicio"
+        break;
+      case '12':
+        return "Sociedad"
+        break;
+      case '13':
+        return "Salud"
+        break;
+      case '14':
+        return "Seguridad"
+        break;
+      case '15':
+        return "Politica"
+        break;
+      case '16':
+        return "Economia"
+        break;
+      case '17':
+        return "Deportes"
+        break;
+      case '18':
+        return "GestionDeGobierno"
+        break;
+      case '19':
+        return "Cultura"
+        break;
+      case '20':
+        return "Internacional"
+        break;
+      case '21':
+        return "Deportes"
+        break;
+      case '22':
+        return "Empresarial"
+        break;
+      default:
+        return 'anything'
+    }
   }
+  const res = await fetch(`https://hoy.bo/api?seccion=${validate()}&id=${context.params.temporal.slice(2)}`)
+  if (!res.ok) {
+    throw new Error('Error en la respuesta de la API');
+  }
+  const dataServer = await res.json()
+  console.log(dataServer)
+  return {
+    props: {
+      dataServer: {
+        "title": dataServer.title ? dataServer.title: `Hoy: ${validate()}`,
+        "descripcion": dataServer.description,
+        "url": dataServer.url?  dataServer.url: '/hoy.png'
+      }
+
+    },
+  };
+}
   
   const Nota = ({ dataServer }) => {
 
@@ -414,9 +468,9 @@ export async function getServerSideProps(context) {
           <meta name="description" content="Esta es una descripción increíble de mi página." />
 
           {/* Open Graph Meta Tags */}
-          <meta property="og:title" content={`Hoy Bolivia: `} />
+          <meta property="og:title" content={`Hoy Bolivia: ${dataServer.title}`} />
           <meta property="og:description" content="Esta es una descripción increíble de mi página." />
-          <meta property="og:image" content="/gobierno.jpg" />
+          <meta property="og:image" content={dataServer.url} />
           <meta property="og:url" content="/gobierno.jpg" />
           <meta property="og:type" content="website" />
           <meta property="og:image:width" content="1200" />
