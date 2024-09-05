@@ -101,7 +101,7 @@ export async function getServerSideProps(context) {
       dataServer: {
         "title": dataServer.title ? dataServer.title: `Hoy: ${validate()}`,
         "descripcion": dataServer.description,
-        "url": dataServer.url
+        "url": dataServer.url?  dataServer.url: '/hoy.png'
       }
 
     },
