@@ -6,7 +6,7 @@ import Success from '../components/Success.jsx'
 import TemplateNota from '../components/TemplateNota.jsx'
 import Layout from '../layout/Layout.jsx'
 import TextEditor from '../components/TextEditor.jsx'
-import { handleSignOut, writeUserData, getSpecificData,onAuth, getIndexData } from '../firebase/utils.js'
+import { handleSignOut, writeUserData, getSpecificData, onAuth, getIndexData } from '../firebase/utils.js'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import parse from 'html-react-parser';
@@ -66,7 +66,7 @@ const ReactQuill = dynamic(() => import('../components/content.jsx'), {
 
 function TemplateOne() {
   const [textArea, setTextArea] = useState("");
-  const {setUserProfile, setUserDate, setUserMonthAndYear, setUserDayMonthYear, monthAndYear, user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, specificData, setUserSpecificData } = useUser()
+  const { setUserProfile, setUserDate, setUserMonthAndYear, setUserDayMonthYear, monthAndYear, user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, specificData, setUserSpecificData } = useUser()
   const { load, play, } = useGlobalAudioPlayer();
 
 
@@ -204,8 +204,8 @@ function TemplateOne() {
     let d = date ? date : new Date().getTime()
     onAuth(setUserProfile, setUserData, postsIMG, setUserPostsIMG, setUserDate, setUserMonthAndYear, setUserDayMonthYear, monthAndYear)
     getIndexData(setUserData, d)
-}, [date, user,]);
-// console.log(JSON.stringify(dataServer, null, 2))
+  }, [date, user,]);
+  // console.log(JSON.stringify(dataServer, null, 2))
 
 
   //console.log(parse(textEditor))
@@ -216,11 +216,11 @@ function TemplateOne() {
   // }, [userDB]);
 
   return (
-   <>
+    <>
 
 
 
-    { router.query && router.query.temporal && userDB[validate()] && userDB[validate()].Posts && userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].url !== undefined &&   <Layout>
+      {router.query && router.query.temporal && userDB[validate()] && userDB[validate()].Posts && userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].url !== undefined && <Layout>
 
         {specificData && router.query.temporal !== undefined &&
           <main className={styles.main}>
@@ -429,47 +429,68 @@ export async function getServerSideProps(context) {
   return {
     props: {
       dataServer: {
-        "title": dataServer.title ? dataServer.title: `Hoy: ${validate()}`,
+        "title": dataServer.title ? dataServer.title : `Hoy: ${validate()}`,
         "descripcion": dataServer.description,
-        "url": dataServer.url?  dataServer.url: '/hoy.png'
+        "url": dataServer.url ? dataServer.url : '/hoy.png',
+        "pageUrl": `https://hoy.bo/${context.params.temporal}`
       }
 
     },
   };
 }
-  
-  const Page = ({ dataServer }) => {
+
+const Page = ({ dataServer }) => {
 
 
-    console.log(dataServer)
-    return (<>
-      <Head>
-          <title>{dataServer.title}</title>
-          <meta name="description" content="Esta es una descripción increíble de mi página." />
+  console.log(dataServer)
+  return (<>
+    <Head>
+      <title>{dataServer.title}</title>
+      <meta name="description" content="Esta es una descripción increíble de mi página." />
 
-          {/* Open Graph Meta Tags */}
-          <meta property="og:title" content={`${dataServer.title}`} />
-          <meta property="og:description" content={`${dataServer.descripcion}`} />
-          <meta property="og:image" content={dataServer.url} />
-          <meta property="og:url" content="/gobierno.jpg" />
-          <meta property="og:type" content="website" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
+      {/* Open Graph Meta Tags */}
+      {/* <meta property="og:title" content={`${dataServer.title}`} />
+      <meta property="og:description" content={`${dataServer.descripcion}`} />
+      <meta property="og:image" content={dataServer.url} />
 
-          {/* Twitter Card Meta Tags */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Bienvenido a Mi Página" />
-          <meta name="twitter:description" content="/gobierno.jpg" />
-          <meta name="twitter:image" content="/gobierno.jpg" />
-        </Head>
-       <TemplateOne></TemplateOne>
-    </>
-   
-    );
-  };
-  export default Page
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" /> */}
 
-  
+
+
+
+      {/* Etiquetas Open Graph para Facebook */}
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content={dataServer.title} />
+      <meta property="og:description" content={dataServer.descripcion} />
+      <meta property="og:image" content={dataServer.url} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:url" content={dataServer.pageUrl} />
+      <meta property="og:site_name" content="Nombre de tu sitio" />
+      <meta property="og:locale" content="es_ES" />
+
+      {/* Opcional: Twitter Cards */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={dataServer.title} />
+      <meta name="twitter:description" content={dataServer.descripcion} />
+      <meta name="twitter:image" content={dataServer.url} />
+
+
+      {/* Twitter Card Meta Tags
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Bienvenido a Mi Página" />
+      <meta name="twitter:description" content="/gobierno.jpg" />
+      <meta name="twitter:image" content="/gobierno.jpg" /> */}
+    </Head>
+    <TemplateOne></TemplateOne>
+  </>
+
+  );
+};
+export default Page
+
+
 
 
 
