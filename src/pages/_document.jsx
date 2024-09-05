@@ -7,10 +7,13 @@ export default class MyDocument extends Document {
     render() {
         return (
             <Html>
-                <Head>   
+                <Head>
                     <link rel="icon" href="h.png" />
                     <link rel='apple-touch-icon' href='/h.png' />
                     <link rel='manifest' href='/manifest.json' />
+                    <meta property="og:title" content={`Periodico Hoy Siete Dias De información`} />
+                    <meta property="og:description" content={`Las noticias mas actualizadas a nivel nacional e internacional lo tienes con HOY.BO.`} />
+                    <meta property="og:image" content='/logo.png' />
                     <meta name="theme-color" content="#007483" />
                     <meta name="msapplication-navbutton-color" content="#007483" />
                     <meta name="apple-mobile-web-app-status-bar-style" content="#007483" />
@@ -21,11 +24,11 @@ export default class MyDocument extends Document {
                     <meta name="author" content="Hoy" />
                     <title>Hoy Bolivia</title>
                     <meta name="google-adsense-account" content="ca-pub-9268005466612059" />
-                </Head> 
+                </Head>
 
                 <body>
                     <Main />
-                    <NextScript />        
+                    <NextScript />
                 </body>
             </Html>
         )
