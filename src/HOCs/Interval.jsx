@@ -64,4 +64,3 @@ function Child({ counter, currentTimer }) {
 //     }
 // }
 
-export { setUserModalsInterval, clearUserModalsInterval }
