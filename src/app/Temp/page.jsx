@@ -1,21 +1,21 @@
 'use client'
 import Image from 'next/image'
-import NavbarSimple from '../../components/NavbarSimple'
+import NavbarSimple from '../../components/NavbarSimple.jsx'
 import { useUser } from '../../context/Context.js'
-import { WithoutAuth } from '../../../HOCs/WithoutAuth'
-import Button from '../../components/Button'
-import Success from '../../components/Success'
-import TemplateNota from '../../components/TemplateNota'
-import Layout from '../../layout/Layout'
-import TextEditor from '../../components/TextEditor'
-import { handleSignOut, writeUserData, getSpecificData, onAuth, getIndexData } from '../../firebase/utils'
+import { WithoutAuth } from '../../../HOCs/WithoutAuth.jsx'
+import Button from '../../components/Button.jsx'
+import Success from '../../components/Success.jsx'
+import TemplateNota from '../../components/TemplateNota.jsx'
+import Layout from '../../layout/Layout.jsx'
+import TextEditor from '../../components/TextEditor.jsx'
+import { handleSignOut, writeUserData, getSpecificData, onAuth, getIndexData } from '../../firebase/utils.js'
 import { useRouter, usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import parse from 'html-react-parser';
-import Banner from '../../components/Banner'
-import BannerNotas from '../../components/BannerNotas'
-import Modal from '../../components/Modal'
-import Temporizador from '../../components/Temporizador'
+import Banner from '../../components/Banner.jsx'
+import BannerNotas from '../../components/BannerNotas.jsx'
+import Modal from '../../components/Modal.jsx'
+import Temporizador from '../../components/Temporizador.jsx'
 import { useGlobalAudioPlayer } from 'react-use-audio-player';
 import Head from 'next/head'
 
@@ -24,10 +24,10 @@ import Head from 'next/head'
 
 // import { useSpeechSynthesis } from 'react-speech-kit';
 // import {SpeechSynthesis} from '../../components/SpeechSynthesis'
-const SpeechSynthesis = dynamic(() => import("../../components/SpeechSynthesis"), {
+const SpeechSynthesis = dynamic(() => import("../../components/SpeechSynthesis.jsx"), {
   ssr: false,
 });
-const SpeechToText = dynamic(() => import("../../components/SpeechToText"), {
+const SpeechToText = dynamic(() => import("../../components/SpeechToText.jsx"), {
   ssr: false,
 });
 // import useSpeechToText from 'react-hook-speech-to-text';
@@ -41,7 +41,7 @@ import 'react-quill/dist/quill.core.css';
 import dynamic from 'next/dynamic'
 
 
-const ReactQuill = dynamic(() => import('../../components/content'), {
+const ReactQuill = dynamic(() => import('../../components/content.jsx'), {
   ssr: false,
   loading: () => <p>Loading ...</p>,
 })
