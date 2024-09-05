@@ -32,7 +32,7 @@ export default function handler(req, res) {
       if (snapshot.exists()) {
         res.json(snapshot.val())
       } else {
-        res.json({
+        res.status(200).json({
           title: `Hoy Siete Dias De Informacion}`,
           description: `Ultimas noticias sobre ${seccion}`
         })

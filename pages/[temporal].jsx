@@ -94,6 +94,9 @@ export async function getServerSideProps(context) {
     }
   }
   const res = await fetch(`https://hoy.bo/api?seccion=${validate()}&id=${context.params.temporal.slice(2)}`)
+  if (!res.ok) {
+    throw new Error('Error en la respuesta de la API');
+  }
   const dataServer = await res.json()
   console.log(dataServer)
   return {
