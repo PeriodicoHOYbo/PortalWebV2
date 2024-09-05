@@ -93,7 +93,7 @@ export async function getServerSideProps(context) {
         return 'anything'
     }
   }
-  const res = await fetch(`http://localhost:3000/api?seccion=${validate()}&id=${context.params.temporal.slice(2)}`)
+  const res = await fetch(`https://hoy.bo/api?seccion=${validate()}&id=${context.params.temporal.slice(2)}`)
   const dataServer = await res.json()
   console.log(dataServer)
   return {
