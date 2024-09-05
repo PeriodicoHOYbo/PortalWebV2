@@ -1,8 +1,8 @@
-import Loader from '../components/Loader'    
+import Loader from '../src/components/Loader'    
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useUser } from '../context/Context.js'
-import { onAuth, getIndexData } from '../firebase/utils'
+import { useUser } from '../src/context/Context.js'
+import { onAuth, getIndexData } from '../src/firebase/utils'
 
 export function WithAuth(Component) {
     return () => {

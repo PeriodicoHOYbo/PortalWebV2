@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { WithoutAuth } from '../HOCs/WithoutAuth'
+import { WithoutAuth } from '../../HOCs/WithoutAuth'
 
 
 export async function getServerSideProps(context) {

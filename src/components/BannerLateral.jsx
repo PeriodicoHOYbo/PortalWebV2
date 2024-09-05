@@ -5,7 +5,7 @@ import styles from '../styles/Banner.module.css'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-// import { clearUserModalsInterval } from '../HOCs/Interval.js'
+// import { clearUserModalsInterval } from '../../HOCs/Interval.js'
 
 export default function Banner({ carpeta, items, click }) {
 

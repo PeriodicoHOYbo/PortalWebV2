@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useUser } from '../context/Context'
 
 import Image from 'next/image'
-import { WithAuth } from '../HOCs/WithAuth'
+import { WithAuth } from '../../HOCs/WithAuth'
 import Button from '../components/Button'
 import Error from '../components/Error'
 import style from '../styles/Login.module.css'

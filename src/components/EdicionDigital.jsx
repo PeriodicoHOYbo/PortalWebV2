@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { getDate, getDayMonthYear, getMonthAndYear } from '../utils/Utils'
 import Tag from '../components/Tag'
-import { WithoutAuth } from '../HOCs/WithoutAuth'
+import { WithoutAuth } from '../../HOCs/WithoutAuth'
 import Header from '../components/Header';
 import Layout from '../layout/Layout.jsx'
 

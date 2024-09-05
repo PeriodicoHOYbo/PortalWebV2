@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import NavbarSimple from '../../components/NavbarSimple'
 import { useUser } from '../../context/Context.js'
-import { WithoutAuth } from '../../HOCs/WithoutAuth'
+import { WithoutAuth } from '../../../HOCs/WithoutAuth'
 import Button from '../../components/Button'
 import Success from '../../components/Success'
 import TemplateNota from '../../components/TemplateNota'

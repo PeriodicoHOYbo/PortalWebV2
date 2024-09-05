@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useUser } from '../context/Context.js'
-import { WithoutAuth } from '../HOCs/WithoutAuth'
+import { WithoutAuth } from '../../HOCs/WithoutAuth'
 import Button from '../components/Button'
 
 import Link from 'next/link'

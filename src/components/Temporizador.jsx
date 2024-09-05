@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useUser } from '../context/Context.js'
 import Layout from '../layout/Layout.jsx'
-import { WithoutAuth } from '../HOCs/WithoutAuth.jsx'
+import { WithoutAuth } from '../../HOCs/WithoutAuth.jsx'
 import styles from '../styles/ModalAdds.module.css'
 import Link from 'next/link.js'
 
