@@ -89,6 +89,15 @@ function Home() {
 
   return (
     <>
+
+      <Head>
+        <meta property="og:title" content={`Hoy Bolivia`} />
+        <meta property="og:description" content={`Periodico Hoy Siete Dias De información: Las noticias mas actualizadas a nivel nacional e internacional.`} />
+        <meta property="og:image" content='/logo.png' />
+        <meta name="keywords" content="Hoy, hoy bo,  hoy.bo, Periódico HOY, Periódico HOY Bolivia, hoy bolivia, periodico bolivia,
+                     noticias hoy, hoy noticias, noticias bolivia, peridico noticias, peridico, noticias,
+                     la razon, el deber, pagina siete, diario pagina siete, hoybolivia.com, diario bolivia" />
+      </Head>
       <Layout>
         <div className={styles.main}>
           <Header></Header>
