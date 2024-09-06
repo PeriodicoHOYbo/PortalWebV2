@@ -18,7 +18,11 @@ export default class MyDocument extends Document {
                      noticias hoy, hoy noticias, noticias bolivia, peridico noticias, peridico, noticias,
                      la razon, el deber, pagina siete, diario pagina siete, hoybolivia.com, diario bolivia" />
                     <meta name="author" content="Hoy" />
-                    <meta name="google-adsense-account" content="ca-pub-9268005466612059" />
+                    {/* <meta name="google-adsense-account" content="ca-pub-9268005466612059" /> */}
+                    {/* <meta property="og:title" content={`Hoy Bolivia`} /> */}
+                    <meta property="description" content={`Periodico Hoy Siete Dias De información: Las noticias mas actualizadas a nivel nacional e internacional.`} />
+                    {/* <meta property="og:image" content='/logo.png' /> */}
+                    <title>Periodico Hoy</title>
                 </Head>
 
                 <body>
