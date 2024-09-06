@@ -1,5 +1,5 @@
 import { useUser } from '../context/Context.js'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import Navbar from './Navbar'
 import Modal from './Modal'
 
@@ -17,6 +17,7 @@ export default function Header(props) {
     const router = useRouter()
     const { user, userDB, setUserData, postsIMG, setUserMonthAndYear, setUserDayMonthYear, setUserSuccess, setUserPostsIMG, date, setUserDate } = useUser()
     const [dataEditor, setDataEditor] = useState(null)
+    const pathname = usePathname()
 
     function dateEvent(e) {
         const months = ['Ene', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
@@ -28,8 +29,8 @@ export default function Header(props) {
         new Date(d).toLocaleDateString() !== new Date().toLocaleDateString() ? getIndexData(setUserData, d, md, setUserSuccess) : getIndexData(setUserData, d)
     }
     function handlerClickEnlace(i) {
-        router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
-        router.pathname == "/Admin" && setDataEditor(i)
+        pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
+        pathname == "/Admin" && setDataEditor(i)
 
         console.log(i)
     }
@@ -43,8 +44,8 @@ export default function Header(props) {
         nextArrow: <button style={{ ...buttonStyle }}></button>
     }
     function handlerClickEnlace(data) {
-        router.pathname != "/Admin" && window.open(data.href, data.target)
-        router.pathname == "/Admin" && setDataEditor(data)
+        pathname != "/Admin" && window.open(data.href, data.target)
+        pathname == "/Admin" && setDataEditor(data)
     }
     function redirect(rute) {
         rute !== '#' && window.open(rute, '_blank')
@@ -53,7 +54,7 @@ export default function Header(props) {
     return (
         <>
       
-            {router.pathname == "/Admin" && <FormAdds />}
+            {pathname == "/Admin" && <FormAdds />}
 
             <header className={styles.header} id='Videos'>
                 <div className={styles.fecha}>
@@ -70,7 +71,7 @@ export default function Header(props) {
                             <div className="each-slide" key={index} >
                                 <div>
                                     {
-                                        router.pathname === "/Admin"
+                                        pathname === "/Admin"
                                             ? <span onClick={() => handlerClickEnlace({ carpeta: 'BannerPortada', item: '', i })}>
                                                 <img className={styles.boxImg} src={userDB[`BannerPortada`][i].url} />
                                             </span>
@@ -87,7 +88,7 @@ export default function Header(props) {
                                         <div className="each-slide" key={index} >
                                             <div>
                                                 {
-                                                    router.pathname === "/Admin"
+                                                    pathname === "/Admin"
                                                         ? <span onClick={() => handlerClickEnlace({ carpeta: 'BannerPortada', item: '', i })}>
                                                             <img className={styles.boxImg} src={userDB[`BannerPortada`][i].url} />
                                                         </span>

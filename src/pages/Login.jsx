@@ -1,6 +1,6 @@
 import { onAuth, signInWithEmail } from '../firebase/utils'
 import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useUser } from '../context/Context'
 
 import Image from 'next/image'

@@ -21,7 +21,7 @@ import style from '../styles/RelojDigital.module.css'
 
 import { handleSignOut } from '../firebase/utils'
 import { getIndexStorage } from '../firebase/storage'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
 
 function Layout({ children }) {
@@ -29,14 +29,15 @@ function Layout({ children }) {
     const audioPlayer = useRef();
     const [dataEditor, setDataEditor] = useState(null)
     const router = useRouter()
+    const pathname = usePathname()
 
 
     function handlerClickEnlace(data) {
         console.log(data)
 
 
-        router.pathname != "/Admin" && window.open(data.href, data.target)
-        router.pathname == "/Admin" && setDataEditor(data)
+        pathname != "/Admin" && window.open(data.href, data.target)
+        pathname == "/Admin" && setDataEditor(data)
     }
 
     function handlerClick(url) {

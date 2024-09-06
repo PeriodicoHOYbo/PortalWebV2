@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useUser } from '../context/Context.js'
 import { useEffect, useState, useRef } from 'react'
 

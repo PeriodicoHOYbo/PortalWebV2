@@ -6,7 +6,7 @@ import Button from '../components/Button'
 
 import Link from 'next/link'
 import styles from '../styles/ModalAdds.module.css'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 

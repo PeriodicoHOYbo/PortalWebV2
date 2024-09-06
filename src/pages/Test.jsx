@@ -20,19 +20,20 @@ import Header from '../components/Header'
 import styles from '../styles/Home.module.css'
 import { handleSignOut } from '../firebase/utils'
 import { uploadIMG } from '../firebase/storage'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 function Home() {
   const { userDB, setUserData, monthAndYear, setUserSuccess, success, postsIMG, showImg, date, setUserDate } = useUser()
   const router = useRouter()
+  const pathname = usePathname()
 
   const [periodicoPDF, setPeriodicoPDF] = useState(false);
   const [periodicoPDFEffect, setPeriodicoPDFEffect] = useState(false);
 
   function handlerClickEnlace(data) {
-    router.pathname != "/Admin" && window.open(data.href, data.target)
-    router.pathname == "/Admin" && setDataEditor(i)
+    pathname != "/Admin" && window.open(data.href, data.target)
+    pathname == "/Admin" && setDataEditor(i)
     // console.log(data.href, data.target)
 
   }

@@ -3,7 +3,7 @@ import { Zoom, Fade } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css';
 import styles from '../styles/Banner.module.css'
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 
 import Link from 'next/link'
 
@@ -12,6 +12,8 @@ export default function Banner({ carpeta, items, click }) {
 
     const { userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, monthAndYear } = useUser()
     const router = useRouter()
+    const pathname = usePathname()
+
     const buttonStyle = {
         width: "30px",
         background: 'none',
@@ -51,7 +53,7 @@ export default function Banner({ carpeta, items, click }) {
                                     <div className="each-slide" key={index} >
                                         <div className={styles.containerIframeBody}>
                                             {
-                                                router.pathname === "/Admin" ?
+                                                pathname === "/Admin" ?
                                                     <span onClick={() => click({ carpeta, item, i })}>
 
                                                         {userDB[`${carpeta}${item}`][i].url
@@ -103,7 +105,7 @@ export default function Banner({ carpeta, items, click }) {
                                             <div className="each-slide" key={index} >
                                                 <div>
                                                     {
-                                                        router.pathname === "/Admin" ?
+                                                        pathname === "/Admin" ?
                                                             <span onClick={() => click({ carpeta, item, i })}>
                                                                 <>
                                                                     <img className={styles.sliderIMG} src={userDB[`${carpeta}${item}`][i].url} />

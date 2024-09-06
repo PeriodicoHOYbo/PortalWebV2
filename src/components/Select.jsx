@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation';
+import { useRouter,usePathname } from 'next/navigation';
 import style from './Select.module.css'
 import { useUser } from '../context/Context.js'
 

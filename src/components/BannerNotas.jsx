@@ -2,7 +2,7 @@ import { useUser } from '../context/Context.js'
 import { Fade } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css';
 import styles from '../styles/Banner.module.css'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 
 import Link from 'next/link'
 

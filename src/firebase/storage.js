@@ -29,10 +29,11 @@ async function uploadIMG(ruteDB, ruteSTG, fileName, file, setUserSuccess, monthA
             uploadBytes(ref(storage, `/${ruteSTG}/${f.name}`), f).then(async (snapshot) => {
                 getDownloadURL(ref(storage, snapshot.metadata.fullPath))
                     .then((url) => {
+                        console.log(url)
                         let obj = {
                             url,
                         }
-                        return writeUserData(`${newRuteDB}/${f.name.split('.')[0]}`, obj)
+                        return writeUserData(`${newRuteDB}/${f.name.split('.')[0]}`, obj, null)
                     })
                     .catch((error) => {
                     });

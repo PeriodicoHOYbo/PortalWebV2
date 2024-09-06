@@ -2,7 +2,7 @@ import HTMLFlipBook from 'react-pageflip';
 import { useUser } from '../context/Context.js'
 import { WithoutAuth } from '../../HOCs/WithoutAuth'
 import NavbarBack from '../components/NavbarBack';
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useState } from 'react';
 
 function MyBook(props) {
@@ -107,7 +107,7 @@ export default WithoutAuth(MyBook)
 // import { useUser } from '../context/Context.js'
 // import { WithoutAuth } from '../../HOCs/WithoutAuth'
 // import NavbarBack from '../components/NavbarBack';
-// import { useRouter } from 'next/navigation'
+// import { useRouter,usePathname } from 'next/navigation'
 // import { useState } from 'react';
 
 // function MyBook(props) {

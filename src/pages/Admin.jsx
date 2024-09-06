@@ -18,7 +18,7 @@ import Header from '../components/Header'
 import styles from '../styles/Home.module.css'
 import { handleSignOut, writeUserData } from '../firebase/utils'
 import { uploadIMG } from '../firebase/storage'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import EdicionDigital from '../components/EdicionDigital'
 
@@ -32,6 +32,7 @@ var fetch_url = `${YOUTUBE_PLAYLIST_ITEMS_API}`
 function Admin() {
   const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, date, setUserDate, viewPeriodista, showImg, showVideo, setUserViewPeriodista } = useUser()
   const router = useRouter()
+  const pathname = usePathname()
 
 
 
@@ -87,8 +88,8 @@ function Admin() {
   }
   // console.log(user.uid)
   function handlerClickEnlace(i) {
-    router.pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
-    router.pathname == "/Admin" && setDataEditor(i)
+    pathname != "/Admin" && router.push("/" + userDB[topic]["Posts"][`PostImage_${i}`])
+    pathname == "/Admin" && setDataEditor(i)
   }
   function resetAutomatico() {
     writeUserData(`/`, { login: !userDB.login }, setUserSuccess)

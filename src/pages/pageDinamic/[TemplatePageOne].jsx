@@ -10,7 +10,7 @@ import Date from '../../components/Date'
 
 import { handleSignOut } from '../../firebase/utils'
 import { uploadIMG } from '../../firebase/storage'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import parse from 'html-react-parser';

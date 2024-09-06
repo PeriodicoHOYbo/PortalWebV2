@@ -1,6 +1,6 @@
 import Loader from '../src/components/Loader'    
 import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useUser } from '../src/context/Context.js'
 import { onAuth, getIndexData } from '../src/firebase/utils'
 

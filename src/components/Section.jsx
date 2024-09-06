@@ -9,7 +9,7 @@ import style from '../styles/Form.module.css'
 import { removeData } from '../firebase/utils'
 import Form from './Form'
 import FormAddsC from './FormAddsC'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 
 import { getDate, getDayMonthYear } from "../utils/Utils";
 import Link from 'next/link'
@@ -61,6 +61,7 @@ export default function Section({ topic, publicView, color }) {
     const [props, setProps] = useState({})
     const [dataEditor, setDataEditor] = useState(null)
     const router = useRouter()
+    const pathname = usePathname()
 
     function handlerTag(val) {
         tag === val && val !== 'Notas' ? setTag('') : setTag(val)
@@ -78,7 +79,7 @@ export default function Section({ topic, publicView, color }) {
 
 
     function handlerClickEnlace(i, topic, banner) {
-        if (router.pathname == "/Admin") {
+        if (pathname == "/Admin") {
             setModal('EDIT')
             setDataEditor(i)
             setItem(banner)
@@ -148,7 +149,7 @@ export default function Section({ topic, publicView, color }) {
                     return <div className='inline-block relative' key={index}>
                         <img src={i.url && i.url !== undefined ? i.url : i.enlace} className={`${'w-full gap-5 rounded-[15px] mb-3.5'} transition-all`} style={{ zIndex: '1000000000' }} onClick={() => handlerZoom(i)} alt="" />
                         <div className='w-full absolute bottom-[20px] px-5 z-50'>
-                            <Button theme='MiniDanger' click={() => router.pathname == "/Admin" && handlerClickEnlace(i)}>Config</Button>
+                            <Button theme='MiniDanger' click={() => pathname == "/Admin" && handlerClickEnlace(i)}>Config</Button>
                         </div>
                     </div>
                 })}
@@ -159,7 +160,7 @@ export default function Section({ topic, publicView, color }) {
                         <img src={i.url} className={`${'w-full gap-5 rounded-[15px] mb-3.5'} transition-all`} style={{ zIndex: '1000000000' }} alt="" />
                         <div className='w-full absolute bottom-[20px] px-5 z-50'>
 
-                            <Button theme='MiniDanger' click={() => router.pathname == "/Admin" && handlerClickEnlace(i)}>config</Button>
+                            <Button theme='MiniDanger' click={() => pathname == "/Admin" && handlerClickEnlace(i)}>config</Button>
                             {/* <Button theme='MiniDanger' click={() => delet(i, 'Notas')}>config</Button> */}
                         </div>
                     </div>

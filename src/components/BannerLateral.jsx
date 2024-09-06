@@ -3,7 +3,7 @@ import { Zoom, Fade } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css';
 import styles from '../styles/Banner.module.css'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import Link from 'next/link'
 // import { clearUserModalsInterval } from '../../HOCs/Interval.js'
 
@@ -12,6 +12,8 @@ export default function Banner({ carpeta, items, click }) {
     const { userDB, zoomIMG, setZoomIMG, setZoomIMG2, bgOpacity, setBgOpacity, timer, setTimer } = useUser()
     // const [zoomIMG, setZoomIMG] = useState(undefined)
     const router = useRouter()
+    const pathname = usePathname()
+
     const buttonStyle = {
         width: "30px",
         background: 'none',
@@ -62,7 +64,7 @@ export default function Banner({ carpeta, items, click }) {
                     ? Object.keys(userDB[`${carpeta}${item}`]).map((i, index) =>
                         <div className="each-slide" key={index} >
                             {
-                                router.pathname === "/Admin"
+                                pathname === "/Admin"
                                     ? <span onClick={() => click({ carpeta, item, i })}>
 
                                         {userDB[`${carpeta}${item}`][i].url
@@ -122,7 +124,7 @@ export default function Banner({ carpeta, items, click }) {
                             Object.keys(userDB[`${carpeta}${item}`]).map((i, index) =>
                                 <div className="each-slide" key={index} >
                                     {
-                                        router.pathname === "/Admin"
+                                        pathname === "/Admin"
                                             ?
                                             <span onClick={() => click({ carpeta, item, i })}>
                                                 {userDB[`${carpeta}${item}`][i].url

@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import style from '../styles/Mantenimiento.module.css'
 
 export default function Mantenimiento(props) {

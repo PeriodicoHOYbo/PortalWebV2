@@ -8,7 +8,7 @@ import TemplateNota from '../components/TemplateNota.jsx'
 import Layout from '../layout/Layout.jsx'
 import TextEditor from '../components/TextEditor.jsx'
 import { handleSignOut, writeUserData, getSpecificData, onAuth, getIndexData } from '../firebase/utils.js'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import parse from 'html-react-parser';
 import Banner from '../components/Banner.jsx'

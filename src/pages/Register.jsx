@@ -1,7 +1,7 @@
 import { onAuth, signUpWithEmail, writeUserData } from '../firebase/utils'
 import { uploadIMG } from '../firebase/storage'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import { useUser } from '../context/Context'
 
 import Image from 'next/image'

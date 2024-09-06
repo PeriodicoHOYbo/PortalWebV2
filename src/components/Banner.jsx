@@ -2,13 +2,15 @@ import { useUser } from '../context/Context.js'
 import { Zoom, Fade } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css';
 import styles from '../styles/Banner.module.css'
-import { useRouter } from 'next/navigation'
+import { useRouter,usePathname } from 'next/navigation'
 import Link from 'next/link'
 
-export default function Banner({ ruta, carpeta, click }) {
 
+export default function Banner({ ruta, carpeta, click }) {
+    const pathname = usePathname()
     const { userDB } = useUser()
     const router = useRouter()
+
     const buttonStyle = {
         width: "30px",
         background: 'none',
@@ -51,7 +53,7 @@ export default function Banner({ ruta, carpeta, click }) {
                     <div className="each-slide" key={index}>
                         <div>
                             {
-                                router.pathname === "/Admin"
+                                pathname === "/Admin"
                                     ? <span onClick={() => click({ carpeta, i })}>
                                         {userDB[ruta][`${carpeta}`][i].url
                                             ? <img className={styles.sliderIMG} src={userDB[ruta][`${carpeta}`][i].url} />
@@ -102,7 +104,7 @@ export default function Banner({ ruta, carpeta, click }) {
                         <div className="each-slide" key={index}>
                             <div>
                                 {
-                                    router.pathname === "/Admin"
+                                    pathname === "/Admin"
                                         ? <span onClick={() => click({ carpeta, i })}>
                                             {userDB[ruta][`${carpeta}`][i].url
                                                 ? <img className={styles.sliderIMG} src={userDB[ruta][`${carpeta}`][i].url} />
