@@ -171,7 +171,8 @@ function Home() {
 {/*             <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
                 <Section topic="Cultura" publicView={true} color=''></Section> */}
             <Section topic="Internacional" publicView={true} color=''></Section>
-{/*             <Section topic="Empresarial" publicView={true} color=''></Section> </>} */}
+{/*             <Section topic="Empresarial" publicView={true} color=''></Section>*/} 
+          </>} 
 
 
         </div>
