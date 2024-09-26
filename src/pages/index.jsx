@@ -163,16 +163,15 @@ function Home() {
           {showImg == false && showVideo == false && <>
             <Section topic="Inicio" publicView={true} color=''></Section>
             <Section topic="Sociedad" publicView={true} color=''></Section>
-            <Section topic="Salud" publicView={true} color=''></Section>
+{/*             <Section topic="Salud" publicView={true} color=''></Section> */}
             <Section topic="Seguridad" publicView={true} color=''></Section>
             <Section topic="Politica" publicView={true} color=''></Section>
             <Section topic="Economia" publicView={true} color=''></Section>
             <Section topic="Deportes" publicView={true} color=''></Section>
-            <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
-            <Section topic="Cultura" publicView={true} color=''></Section>
+{/*             <Section topic="GestionDeGobierno" publicView={true} color=''></Section>
+                <Section topic="Cultura" publicView={true} color=''></Section> */}
             <Section topic="Internacional" publicView={true} color=''></Section>
-            <Section topic="Empresarial" publicView={true} color=''></Section>
-          </>}
+{/*             <Section topic="Empresarial" publicView={true} color=''></Section> </>} */}
 
 
         </div>
